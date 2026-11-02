@@ -194,13 +194,26 @@ export const chapters: Chapter[] = [
         ],
       },
       {
-        // The final group never leaves.
-        at: 0.68,
-        until: 2,
+        at: 0.66,
+        until: 0.84,
         lines: [
           { text: "It's not always about having you beside me, Shinu.", style: "display" },
           { text: "Sometimes, knowing that it's you is more than enough.", style: "body", delay: 2 },
           { text: "I love you. ❤️", style: "hand", delay: 4 },
+        ],
+      },
+      {
+        // Goodnight. The final moment never leaves.
+        at: 0.88,
+        until: 2,
+        lines: [
+          { text: "It's night as I give you this.", style: "display" },
+          {
+            text: "Wherever you are right now, the same moon is up there, quietly watching over both of us.",
+            style: "body",
+            delay: 1.8,
+          },
+          { text: "Goodnight, Shinu. Sleep well. 🌙", style: "hand", delay: 4.6 },
         ],
       },
     ],
@@ -239,4 +252,6 @@ export const letter = {
   ],
   closing: "Yours, always,",
   signature: "Shivansh",
+  postscript:
+    "P.S. It's late, so don't stay up too long. If you can, look out of the window for a second before you sleep. The moon you see is the same one I'm looking at. Goodnight. 🌙",
 };

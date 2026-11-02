@@ -52,7 +52,7 @@ export function StoryChapter({ chapter, index, beat, reducedMotion, onOpenLetter
                     reducedMotion={reducedMotion}
                   />
                 ))}
-                {finale && <FinaleButton delay={6.4} onClick={onOpenLetter!} />}
+                {finale && <FinaleButton delay={7.2} onClick={onOpenLetter!} />}
               </div>
             )}
           </motion.div>

@@ -4,6 +4,7 @@ import { Component, type ReactNode } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { FOV } from "@/lib/frustum";
 import { stepSmooth } from "@/lib/storyState";
+import { SkyGradient } from "./SkyGradient";
 import { StarField } from "./StarField";
 import { MoonScene } from "./MoonScene";
 import { Clouds } from "./Clouds";
@@ -47,12 +48,16 @@ export default function SkyCanvas({ mobile, parallax, paused = false, fallback }
         style={{ position: "fixed", inset: 0, pointerEvents: "none" }}
         frameloop={paused ? "never" : "always"}
         dpr={mobile ? [1, 1.5] : [1, 2]}
-        gl={{ antialias: false, alpha: true, powerPreference: "high-performance", stencil: false, depth: false }}
+        // An opaque canvas that paints its own sky: phones never have to blend it
+        // with page layers underneath, which is what made the ending flicker.
+        gl={{ antialias: false, alpha: false, powerPreference: "high-performance", stencil: false, depth: false }}
+        onCreated={({ gl }) => gl.setClearColor("#080e20", 1)}
         camera={{ fov: FOV, near: 0.1, far: 400, position: [0, 0, 0] }}
         aria-hidden
       >
         <StoryClock />
         <CameraRig parallax={parallax} />
+        <SkyGradient />
         <StarField count={mobile ? 2600 : 5200} />
         <MoonScene />
         <Clouds count={mobile ? 6 : 9} />

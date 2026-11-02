@@ -8,7 +8,7 @@ import { musicPlayer } from "@/lib/music";
 import { storyState } from "@/lib/storyState";
 import { useDeviceProfile } from "@/lib/useDeviceProfile";
 import { useBeatNavigation } from "@/lib/useBeatNavigation";
-import { Grain, SkyBackdrop } from "./SkyBackdrop";
+import { SkyBackdrop } from "./SkyBackdrop";
 import { StoryChapter } from "./StoryChapter";
 import { FinalLetter } from "./FinalLetter";
 import { SoundToggle } from "./SoundToggle";
@@ -53,7 +53,6 @@ export function Experience() {
           fallback={<SkyBackdrop fallback />}
         />
       )}
-      <Grain />
 
       {/* The stage: every chapter is layered here; only the current moment shows. */}
       <div className="absolute inset-0 z-10 touch-none select-none">

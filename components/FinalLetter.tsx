@@ -35,7 +35,7 @@ export function FinalLetter({ open, onClose, reducedMotion }: Props) {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-40 flex items-center justify-center bg-[rgba(5,9,22,0.72)] px-4 py-[max(1rem,env(safe-area-inset-top))]"
+          className="fixed inset-0 z-40 flex items-center justify-center bg-[rgba(5,9,22,0.82)] px-4 py-[max(1rem,env(safe-area-inset-top))]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 0.9 } }}
           exit={{ opacity: 0, transition: { duration: 0.7, delay: 0.2 } }}
@@ -46,9 +46,9 @@ export function FinalLetter({ open, onClose, reducedMotion }: Props) {
         >
           <motion.article
             onClick={(e) => e.stopPropagation()}
-            initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.15 } }}
-            exit={{ opacity: 0, y: 24, scale: 0.98, transition: { duration: 0.6 } }}
+            initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0, transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 } }}
+            exit={{ opacity: 0, transition: { duration: 0.5 } }}
             className="paper relative max-h-[calc(100svh-2rem)] w-full max-w-[34rem] overflow-y-auto overscroll-contain rounded-[0.4rem] px-[clamp(1.5rem,6vw,3rem)] pb-12 pt-14"
           >
             <button
@@ -81,12 +81,19 @@ export function FinalLetter({ open, onClose, reducedMotion }: Props) {
                 <p>{letter.closing}</p>
                 <p className="mt-1 text-[1.25em]">{letter.signature}</p>
               </motion.div>
+              <motion.p
+                className="pt-6 text-[0.92em] text-[#26304f]/75"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { delay: 0.9 + paragraphs.length * step + 1.4, duration: 1.4 } }}
+              >
+                {letter.postscript}
+              </motion.p>
             </div>
 
             <motion.div
               className="mt-10 flex justify-center"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { delay: 0.9 + paragraphs.length * step + 1.2, duration: 1.2 } }}
+              animate={{ opacity: 1, transition: { delay: 0.9 + paragraphs.length * step + 2.2, duration: 1.2 } }}
             >
               <button
                 type="button"

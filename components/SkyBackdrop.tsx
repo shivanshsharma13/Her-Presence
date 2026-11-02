@@ -6,9 +6,9 @@ import { bloom, moon, sunrise, warmth } from "@/lib/timeline";
 import { seededRandom } from "@/lib/textures";
 
 /**
- * The sky behind the WebGL layer: the colour of the night shifting from
- * midnight blue to gold. Pure CSS, so it also stands alone when WebGL is
- * unavailable (with a few CSS stars and a CSS moon added).
+ * A CSS version of the sky. With WebGL it only shows for the moment before
+ * the canvas loads; without WebGL it animates on its own, with a few CSS
+ * stars and a CSS moon added.
  */
 export function SkyBackdrop({ fallback }: { fallback: boolean }) {
   const warm = useRef<HTMLDivElement>(null);
@@ -29,6 +29,7 @@ export function SkyBackdrop({ fallback }: { fallback: boolean }) {
   }, []);
 
   useEffect(() => {
+    if (!fallback) return;
     let raf = 0;
     let smooth = storyState.s;
     let last = performance.now();
@@ -62,7 +63,7 @@ export function SkyBackdrop({ fallback }: { fallback: boolean }) {
     };
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [fallback]);
 
   return (
     <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden>
@@ -118,9 +119,4 @@ export function SkyBackdrop({ fallback }: { fallback: boolean }) {
       <div className="absolute inset-0 bg-[radial-gradient(130%_90%_at_50%_45%,transparent_55%,rgba(4,7,18,0.55)_100%)]" />
     </div>
   );
-}
-
-/** Film grain over everything; hides gradient banding on cheap screens. */
-export function Grain() {
-  return <div className="grain pointer-events-none fixed inset-0 z-30" aria-hidden />;
 }
