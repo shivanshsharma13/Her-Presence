@@ -56,6 +56,7 @@ export function ContinueHint({ visible, showText }: { visible: boolean; showText
     <motion.div
       aria-hidden
       className="pointer-events-none fixed inset-x-0 bottom-[max(2rem,env(safe-area-inset-bottom))] z-20 flex flex-col items-center gap-3"
+      initial={{ opacity: 0 }}
       animate={{ opacity: visible ? 1 : 0 }}
       transition={{ duration: visible ? 1.6 : 0.4 }}
     >
