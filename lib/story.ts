@@ -203,17 +203,17 @@ export const chapters: Chapter[] = [
         ],
       },
       {
-        // Goodnight. The final moment never leaves.
+        // Written at night, opened in the morning. The final moment never leaves.
         at: 0.88,
         until: 2,
         lines: [
-          { text: "It's night as I give you this.", style: "display" },
+          { text: "I made this for you last night, while you were asleep.", style: "display" },
           {
-            text: "Wherever you are right now, the same moon is up there, quietly watching over both of us.",
+            text: "The moon has handed the sky over to the sun now, but everything I felt last night is still right here.",
             style: "body",
-            delay: 1.8,
+            delay: 2,
           },
-          { text: "Goodnight, Shinu. Sleep well. 🌙", style: "hand", delay: 4.6 },
+          { text: "Good morning, Shinu. ☀️", style: "hand", delay: 4.8 },
         ],
       },
     ],
@@ -253,5 +253,5 @@ export const letter = {
   closing: "Yours, always,",
   signature: "Shivansh",
   postscript:
-    "P.S. It's late, so don't stay up too long. If you can, look out of the window for a second before you sleep. The moon you see is the same one I'm looking at. Goodnight. 🌙",
+    "P.S. I wrote this late last night, so you were the last thing on my mind before I slept. I hope you slept well. Take your time this morning, have something warm, and know that today, someone is quietly thinking of you. Good morning. ☀️",
 };
