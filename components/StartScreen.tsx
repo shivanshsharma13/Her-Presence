@@ -12,12 +12,12 @@ export function StartScreen({ visible, onBegin }: { visible: boolean; onBegin: (
       {visible && (
         <motion.div
           className="fixed inset-0 z-40 flex flex-col items-center justify-center px-6 text-center"
-          exit={{ opacity: 0, filter: "blur(8px)", transition: { duration: 1.4, ease: EASE } }}
+          exit={{ opacity: 0, transition: { duration: 1.2, ease: EASE } }}
         >
           <motion.p
             className="story-text t-displayLg"
             initial={{ opacity: 0, y: 12, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)", transition: { delay: 1.2, duration: 2, ease: EASE } }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)", transition: { delay: 1.2, duration: 2, ease: EASE }, transitionEnd: { filter: "none" } }}
           >
             {welcome.title}
           </motion.p>

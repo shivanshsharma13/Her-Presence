@@ -46,8 +46,8 @@ export function FinalLetter({ open, onClose, reducedMotion }: Props) {
         >
           <motion.article
             onClick={(e) => e.stopPropagation()}
-            initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.96, rotate: -0.6, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, scale: 1, rotate: 0, filter: "blur(0px)", transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.15 } }}
+            initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.15 } }}
             exit={{ opacity: 0, y: 24, scale: 0.98, transition: { duration: 0.6 } }}
             className="paper relative max-h-[calc(100svh-2rem)] w-full max-w-[34rem] overflow-y-auto overscroll-contain rounded-[0.4rem] px-[clamp(1.5rem,6vw,3rem)] pb-12 pt-14"
           >

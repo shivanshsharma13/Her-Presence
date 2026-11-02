@@ -46,7 +46,12 @@ export function Experience() {
     <main className="fixed inset-0 overflow-hidden">
       <SkyBackdrop fallback={fallback} />
       {profile.ready && profile.webgl && (
-        <SkyCanvas mobile={profile.mobile} parallax={profile.finePointer} fallback={<SkyBackdrop fallback />} />
+        <SkyCanvas
+          mobile={profile.mobile}
+          parallax={profile.finePointer}
+          paused={letterOpen}
+          fallback={<SkyBackdrop fallback />}
+        />
       )}
       <Grain />
 

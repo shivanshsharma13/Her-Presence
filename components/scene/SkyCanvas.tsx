@@ -34,15 +34,18 @@ class WebGLBoundary extends Component<{ fallback: ReactNode; children: ReactNode
 interface Props {
   mobile: boolean;
   parallax: boolean;
+  /** Stops rendering (e.g. while the letter covers the sky) to free the GPU. */
+  paused?: boolean;
   fallback: ReactNode;
 }
 
-export default function SkyCanvas({ mobile, parallax, fallback }: Props) {
+export default function SkyCanvas({ mobile, parallax, paused = false, fallback }: Props) {
   return (
     <WebGLBoundary fallback={fallback}>
       <Canvas
         className="!fixed inset-0"
         style={{ position: "fixed", inset: 0, pointerEvents: "none" }}
+        frameloop={paused ? "never" : "always"}
         dpr={mobile ? [1, 1.5] : [1, 2]}
         gl={{ antialias: false, alpha: true, powerPreference: "high-performance", stencil: false, depth: false }}
         camera={{ fov: FOV, near: 0.1, far: 400, position: [0, 0, 0] }}

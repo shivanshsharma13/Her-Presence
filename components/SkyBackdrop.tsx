@@ -32,15 +32,24 @@ export function SkyBackdrop({ fallback }: { fallback: boolean }) {
     let raf = 0;
     let smooth = storyState.s;
     let last = performance.now();
+    // Writing styles only when they change keeps the browser from re-compositing every frame.
+    const cache = new Map<HTMLElement, string>();
+    const setOpacity = (el: HTMLElement | null, v: number) => {
+      if (!el) return;
+      const value = v.toFixed(3);
+      if (cache.get(el) === value) return;
+      cache.set(el, value);
+      el.style.opacity = value;
+    };
     const loop = (now: number) => {
       const dt = Math.min(0.1, (now - last) / 1000);
       last = now;
       smooth += (storyState.s - smooth) * (storyState.reducedMotion ? 1 : 1 - Math.exp(-dt * 1.8));
       const s = smooth;
-      if (warm.current) warm.current.style.opacity = String(warmth(s));
-      if (dawn.current) dawn.current.style.opacity = String(sunrise(s));
-      if (flare.current) flare.current.style.opacity = String(bloom(s) * 0.85);
-      if (cssStars.current) cssStars.current.style.opacity = String(1 - sunrise(s) * 0.7);
+      setOpacity(warm.current, warmth(s));
+      setOpacity(dawn.current, sunrise(s));
+      setOpacity(flare.current, bloom(s) * 0.85);
+      setOpacity(cssStars.current, 1 - sunrise(s) * 0.7);
       if (cssMoon.current) {
         const m = moon(s);
         const size = Math.max(9, m.r * 46);

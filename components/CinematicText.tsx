@@ -37,7 +37,14 @@ export function CinematicText({ text, style, shown, delay = 0, reducedMotion, le
       }
     : {
         hidden: { opacity: 0, filter: "blur(10px)", y: "0.3em", transition: { duration: 0.9, ease: EASE } },
-        shown: { opacity: 1, filter: "blur(0px)", y: "0em", transition: { duration: WORD_SECONDS, ease: EASE } },
+        shown: {
+          opacity: 1,
+          filter: "blur(0px)",
+          y: "0em",
+          transition: { duration: WORD_SECONDS, ease: EASE },
+          // A lingering filter keeps every word on its own GPU layer; drop it once settled.
+          transitionEnd: { filter: "none" },
+        },
       };
 
   return (

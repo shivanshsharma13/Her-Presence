@@ -68,6 +68,13 @@ export function useBeatNavigation({ started, enabled }: Options) {
     if (enabled) shownAt.current = performance.now();
   }, [enabled]);
 
+  // Development only: `?moment=12` jumps straight to a moment for previewing.
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "development" || !started) return;
+    const m = Number(new URLSearchParams(window.location.search).get("moment"));
+    if (m > 0) go(m);
+  }, [started, go]);
+
   useEffect(() => {
     let lastWheel = 0;
     let wheelAcc = 0;
