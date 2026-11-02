@@ -4,7 +4,7 @@
  * scroll event.
  */
 export const storyState = {
-  /** Continuous story position: chapter index + local progress (0 → 7). */
+  /** Continuous story position: chapter index + local progress (0 → 8). */
   s: 0,
   /** Smoothed copy of `s`, eased toward `s` every frame. */
   smooth: 0,
@@ -12,8 +12,6 @@ export const storyState = {
   startedAt: 0,
   reducedMotion: false,
 };
-
-export const CHAPTER_COUNT = 7;
 
 /** Eases `storyState.smooth` toward `storyState.s`. Call once per frame. */
 export function stepSmooth(delta: number) {

@@ -139,6 +139,37 @@ export const chapters: Chapter[] = [
     ],
   },
   {
+    id: "a-night-i-remember",
+    groups: [
+      {
+        at: 0.04,
+        until: 0.3,
+        lines: [
+          { text: "There's a night I still think about.", style: "display" },
+          { text: "Back when we were only friends, I got rejected in an interview.", style: "body", delay: 1.8 },
+          { text: "And you stayed up with me. The whole night.", style: "glow", delay: 4.2 },
+        ],
+      },
+      {
+        at: 0.36,
+        until: 0.62,
+        lines: [
+          { text: "You knew about the COVID nights too.", style: "display" },
+          { text: "How alone I was through them, one quiet night after another.", style: "body", delay: 1.8 },
+        ],
+      },
+      {
+        at: 0.68,
+        until: 0.97,
+        lines: [
+          { text: "That isn't my story anymore.", style: "display" },
+          { text: "Now, even my longest nights have you somewhere in them.", style: "body", delay: 1.8 },
+          { text: "And I'm so grateful.", style: "hand", delay: 4.2 },
+        ],
+      },
+    ],
+  },
+  {
     id: "the-future",
     groups: [
       {
@@ -245,6 +276,7 @@ export const letter = {
     "I've been carrying this feeling around for a while, and I wanted to put it somewhere it could stay.",
     "These days I spend a lot of time inside my own head: applications, interviews, waiting, wondering if I'm good enough, wondering if the life I keep picturing is really on its way. Some nights it gets loud in there.",
     "And then I think of you. Not of you doing anything, or saying the right thing, or fixing something for me. Just you. Your name lighting up my screen. Something you said weeks ago that I still replay. The way you get excited about little things and hold on to small moments, because to you, they matter.",
+    "I still remember the night I got rejected in that interview. We were only friends then, and you stayed up the whole night with me anyway. You knew how alone I was through the COVID nights, too. I don't feel like that anymore, and so much of that is because of you. I'm more grateful for it than I know how to say.",
     "That's what I keep coming back to. You don't have to be beside me for it to work. You don't have to be available all the time, or be strong for me, or have the answers. You only have to be you, somewhere in this world, and somehow my world gets softer.",
     "I don't know exactly where I'll be a year from now. But I know I'll keep trying, and I know I want you in the little moments along the way.",
     "So on the days you feel ordinary, please remember this: for someone, you are the steady thing. The quiet light. The one sure thing in a very unsure time.",

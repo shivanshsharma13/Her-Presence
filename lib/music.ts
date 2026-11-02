@@ -87,7 +87,7 @@ class MusicPlayer {
     const start = performance.now();
     const step = (now: number) => {
       const t = Math.min(1, (now - start) / FADE_MS);
-      audio.volume = from + (target - from) * t;
+      audio.volume = Math.min(1, Math.max(0, from + (target - from) * t));
       if (t < 1) this.fadeRaf = requestAnimationFrame(step);
       else done?.();
     };
